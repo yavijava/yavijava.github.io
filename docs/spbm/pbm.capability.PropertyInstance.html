@@ -1,0 +1,124 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.capability.PropertyInstance" name="pbm.capability.PropertyInstance"></a>
+<h1>Data Object - PbmCapabilityPropertyInstance(pbm.capability.PropertyInstance)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.capability.ConstraintInstance.html#field_detail">PbmCapabilityConstraintInstance</a>, <a href="pbm.fault.CapabilityProfilePropertyMismatchFault.html#field_detail">PbmCapabilityProfilePropertyMismatchFault</a>, <a href="pbm.fault.PropertyMismatchFault.html#field_detail">PbmPropertyMismatchFault</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         The <a href="pbm.capability.PropertyInstance.html">PbmCapabilityPropertyInstance</a> data object describes a virtual machine
+ storage requirement. A storage requirement is based on the storage capability
+ described in the <a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a> and in the
+ datastore profile property instance.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="id" name="id"></a><strong>id</strong></td><td>xsd:string</td><td>
+<p></p>
+         Requirement property identifier. This identifier corresponds to the
+ storage capability metadata identifier
+ (<a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a>.<a href="pbm.capability.PropertyMetadata.html#id">id</a>).
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="value" name="value"></a><strong>value</strong></td><td>xsd:anyType</td><td>
+<p></p>
+         Property value. You must specify the value.
+ A property value is one value or a collection of values.
+ </p>
+ <ul>
+ <li>A single property value is expressed as a scalar value.</li>
+ <li>A collection of values is expressed as a <a href="pbm.capability.types.DiscreteSet.html">PbmCapabilityDiscreteSet</a>
+ or a <a href="pbm.capability.types.Range.html">PbmCapabilityRange</a> of values.</li>
+ </ul>
+ <p>
+ The datatype of each value must be one of the
+ <a href="pbm.capability.types.BuiltinTypesEnum.html">PbmBuiltinType</a> datatypes.
+ If the property consists of a collection of values,
+ the interpretation of those values is determined by the
+ <a href="pbm.capability.GenericTypeInfo.html">PbmCapabilityGenericTypeInfo</a>.
+ </p>
+ <p>
+ Type information for a property instance is described in the property metadata
+ (<a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a>.<a href="pbm.capability.PropertyMetadata.html#type">type</a>).
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCapabilityPropertyInstance">
+            <complexContent>
+               <extension base="pbm:DynamicData">
+                  <sequence>
+                     <element name="id" type="xsd:string"/>
+                     <element name="value" type="xsd:anyType"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

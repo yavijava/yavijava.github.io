@@ -1,0 +1,212 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.capability.PropertyMetadata" name="pbm.capability.PropertyMetadata"></a>
+<h1>Data Object - PbmCapabilityPropertyMetadata(pbm.capability.PropertyMetadata)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.capability.CapabilityMetadata.html#field_detail">PbmCapabilityMetadata</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.capability.TypeInfo.html">PbmCapabilityTypeInfo</a>, <a href="pbm.ExtendedElementDescription.html">PbmExtendedElementDescription</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         The <a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a> data object describes storage capability.
+ An instance of property metadata may apply to many property instances
+ (<a href="pbm.capability.PropertyInstance.html">PbmCapabilityPropertyInstance</a>).
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="allowedValue" name="allowedValue"></a><strong>allowedValue</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:anyType</td><td>
+<p></p>
+         All legal values that the property may take on, across all
+ implementations of the property. This definition of legal values is not
+ determined by any particular resource configuration; rather it is
+ inherent to the definition of the property. If undefined, then any value
+ of the correct type is legal. This object must be a generic container for
+ the <a href="pbm.capability.PropertyMetadata.html#type">type</a>
+ defined for the property;
+ see <a href="pbm.capability.types.BuiltinGenericTypesEnum.html">PbmBuiltinGenericType</a>
+ for the supported generic container types.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="defaultValue" name="defaultValue"></a><strong>defaultValue</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:anyType</td><td>
+<p></p>
+         Default value, if any, that the property will assume when not
+ constrained by requirements. This object must be of the
+ <a href="pbm.capability.PropertyMetadata.html#type">type</a>
+ defined for the property.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="id" name="id"></a><strong>id</strong></td><td>xsd:string</td><td>
+<p></p>
+         Property identifier. Should be unique within the definition of the
+ capability. Property instances refer to this identifier
+ (<a href="pbm.capability.PropertyInstance.html">PbmCapabilityPropertyInstance</a>.<a href="pbm.capability.PropertyInstance.html#id">id</a>).
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="mandatory" name="mandatory"></a><strong>mandatory</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         Indicates whether incorporating given capability is mandatory during creation of
+ profile.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="requirementsTypeHint" name="requirementsTypeHint"></a><strong>requirementsTypeHint</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         A hint for data-driven systems that assist in authoring requirements
+ constraints. Acceptable values defined by
+ <a href="pbm.capability.types.BuiltinGenericTypesEnum.html">PbmBuiltinGenericType</a>.
+ A property will typically only have constraints of a given type in
+ requirement profiles, even if it is likely to use constraints of
+ different types across capability profiles. This value, if specified,
+ specifies the expected kind of constraint used in requirement profiles.
+ Considerations for using this information:
+ <ul>
+ <li>This is only a hint; any properly formed constraint
+ (see <a href="pbm.capability.PropertyInstance.html#value">value</a>)
+ is still valid for a requirement profile.</li>
+ <li>If VMW_SET is hinted, then a single value matching the property metadata type is
+  also an expected form of constraint, as the latter is an allowed convenience
+ for expressing a single-member set.</li>
+ <li>If this hint is not specified, then the authoring system may default to a form of
+ constraint determined by its own criteria.</li>
+ </ul>
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="summary" name="summary"></a><strong>summary</strong></td><td><a href="pbm.ExtendedElementDescription.html">PbmExtendedElementDescription</a></td><td>
+<p></p>
+         Property name and description.
+ <ul>
+ <li>The <code>summary.label</code> property
+ (<a href="pbm.ExtendedElementDescription.html#label">label</a>)
+ contains property 'name' in server locale.
+ </li>
+ <li>The <code>summary.summary</code> property
+ (<a href="pbm.ExtendedElementDescription.html#summary">summary</a>)
+ contains property 'description' in server locale.
+ </li>
+ <li>The <code>summary.messageCatalogKeyPrefix</code> property
+ (<a href="pbm.ExtendedElementDescription.html#messageCatalogKeyPrefix">messageCatalogKeyPrefix</a>)
+ contains unique prefix for this property within given message catalog.
+ Prefix format: &lt;capability_unique_identifier>.&lt;property_id>
+ capability_unique_identifier -- string representation of
+ <a href="pbm.capability.CapabilityMetadata.UniqueId.html">PbmCapabilityMetadataUniqueId</a> which globally identifies given
+ capability metadata definition uniquely.
+ property_id -- 'id' of this property <a href="pbm.capability.PropertyMetadata.html#id">id</a>
+ Eg www.emc.com.storage.Recovery.Recovery_site
+ www.emc.com.storage.Recovery.RPO
+ www.emc.com.storage.Recovery.RTO
+ </li>
+ </ul>
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="type" name="type"></a><strong>type</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.capability.TypeInfo.html">PbmCapabilityTypeInfo</a></td><td>
+<p></p>
+         Type information for the capability. The type of a property value
+ (<a href="pbm.capability.PropertyInstance.html">PbmCapabilityPropertyInstance</a>.<a href="pbm.capability.PropertyInstance.html#value">value</a>)
+ is specified as a builtin datatype and may also specify the interpretation of a
+ collection of values of that datatype.
+ <ul>
+ <li><a href="pbm.capability.PropertyMetadata.html#type">type</a>.<a href="pbm.capability.TypeInfo.html#typeName">typeName</a>
+ specifies the <a href="pbm.capability.types.BuiltinTypesEnum.html">PbmBuiltinType</a>.</li>
+ <li><a href="pbm.capability.PropertyMetadata.html#type">type</a>.<a href="pbm.capability.GenericTypeInfo.html#genericTypeName">genericTypeName</a>
+ indicates how a collection of values of the specified datatype will be interpreted
+ (<a href="pbm.capability.types.BuiltinGenericTypesEnum.html">PbmBuiltinGenericType</a>).</li>
+ </ul>
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCapabilityPropertyMetadata">
+            <complexContent>
+               <extension base="pbm:DynamicData">
+                  <sequence>
+                     <element name="id" type="xsd:string"/>
+                     <element name="summary" type="pbm:PbmExtendedElementDescription"/>
+                     <element name="mandatory" type="xsd:boolean"/>
+                     <element name="type" type="pbm:PbmCapabilityTypeInfo" minOccurs="0"/>
+                     <element name="defaultValue" type="xsd:anyType" minOccurs="0"/>
+                     <element name="allowedValue" type="xsd:anyType" minOccurs="0"/>
+                     <element name="requirementsTypeHint" type="xsd:string" minOccurs="0"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

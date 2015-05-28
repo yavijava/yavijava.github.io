@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>VMware Storage Policy API Reference Documentation</title>
+        <script language="JavaScript" src="./commonRes.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="doc-style.css"></link>
+	<style type="text/css">
+	.Exp {
+	font-size:11px; text-transform: uppercase; FONT-WEIGHT: bold; COLOR: #00000;
+    }
+.light-blue-shade {
+	background-color: #E6EDF6;
+}
+
+	
+	</style>
+	
+</head>
+<body>
+<h1>VMware Storage Policies</h1>
+<p>
+A vSphere storage profile defines storage policy information that describes storage
+requirements for virtual machines and storage capabilities of storage providers.
+You use VMware Storage Policies to manage the assocation between virtual machines
+and datastores.
+</p>
+<h3>Storage Capabilities</h3>
+<p>
+Storage requirements are based on the storage capabilities available
+from a storage provider. A Storage Policy Server obtains storage capability data
+from VASA 2.0 providers or from tag-based storage policies.
+</p>
+<ul>
+<li>VASA 2.0 providers - vSphere supports VMware VSAN storage capabilities only.</li><br>
+<li>Tag-based storage - You use the vSphere Web Client to define storage policy tags.</li>
+</ul>
+<h3>Virtual Machine Storage</h3>
+<p>
+Virtual machine configuration and data are stored in datastores.
+</p>
+<ul>
+<li>Virtual machine configuration is stored in files with the <code>.vmx</code>
+file extension. The set of virtual machine configuration files also includes other
+system files that support virtual machine operation. Examples of these system files
+include log files (.log), BIOS state files (.nvram), paging files (.vmem),
+and snapshot data files (.vmsd).</li><br>
+<li>Virtual machine data is stored on virtual disks, in files with the <code>.vmdk</code> file extension.</li>
+</ul>
+<p>
+VMware Storage Policies allow you to distinguish between virtual machine configuration and
+data files and to specify storage locations based on the distinction.
+</p>
+<h3>Storage Policy Operations</h3>
+<p>
+Use Storage Policy API methods to support virtual machine provisioning.
+</p>
+<table>
+<tr><th>Storage Policy Operation<br>(Storage Policy API)</th>
+<th>Virtual Machine Provisioning<br>(vSphere API)</th></tr>
+<tr>
+<td>Create and update storage profiles. See the
+<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>.</td>
+<td>Associate storage profiles with virtual machines and virtual disks.
+See the description of the vSphere API data object properties
+<code>VirtualMachineConfigSpec.vmProfile</code> and
+<code>FileBackedVirtualDiskSpec.profile</code> in the <i>vSphere API Reference</i>.
+You can also use the vSphere Web Client to associate a storage profile with a virtual
+machine or virtual disk.
+</td></tr>
+<tr>
+<td>Identify candidate datastores for storage locations. See the
+<a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>.</td>
+<td>Specify the datastores when you create virtual
+machines and virtual disks. See the description of the vSphere API data object
+properties <code>VirtualMachineFileInfo.vmPathName</code> and
+<code>VirtualDeviceFileBackingInfo.datastore</code> in the <i>vSphere API Reference</i>.
+</td></tr>
+<tr>
+<td>Check compliance between storage requirements and capabilities. See the
+<a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a>.</td>
+<td>After you associate a storage profile with a virtual machine
+or virtual disk, the Server will identify non-compliance if the datastore does not
+satisfy the requirements of the profile.
+</td></tr>
+</table>
+
+<br>
+<h1>VMware Storage Policy API Reference Documentation</h1>
+<p>
+The VMware Storage Policy API Reference documentation provides information
+about the methods and data structures available through the Storage Policy API:</p>
+<ul>
+<li><a href="mo-types-landing.html">Managed objects</a></li>
+<li><a href="do-types-landing.html">Data objects</a></li>
+<li><a href="properties-landing.html">Properties</a></li>
+<li><a href="methods-landing.html">Methods</a></li>
+<li><a href="enums-landing.html">Enumerations</a></li>
+<li><a href="fault-types-landing.html">Faults</a></li>
+</ul>
+<p>The Storage Policy API is exposed as a Web service, running on VMware vCenter server systems.
+The API provides access to the methods that you can use to perform Storage Policy
+operations for virtual machines.
+</p>
+<p>This Storage Policy API Reference is a core component of the VMware Storage Policy SDK. 
+You can use the VMware Storage Policy SDK to create custom solutions for managing storage policies.
+</p>
+
+<h2>Navigating the API Reference</h2>
+<p>
+The Storage Policy API Reference is an HTML frameset. Click an entry in the left-hand pane
+to display information in the right-hand pane. To find the description of a specific 
+object type, click the appropriate category name and then refine your search
+by entering the object name in the search text field.
+</p>
+<p>To quickly find an entry, start typing its name in the <strong>Quick Index</strong> field.  
+</p>
+
+<h1>For More Information</h1>
+<p>For conceptual and &#147;how to&#148; information, see the
+<i>VMware Storage Policy Programming Guide</i>.
+</p>
+
+<p>The most recent published versions of this guide is available at:
+</p>
+<p><a href="http://www.vmware.com/support/developer">http://www.vmware.com/support/developer/vc-sdk</a>
+</p>
+
+<p><script language="javascript">document.write(ID_Copyright);</script><br/>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</p>
+</body>
+</html>

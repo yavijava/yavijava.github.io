@@ -1,0 +1,1928 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.profile.ProfileManager" name="pbm.profile.ProfileManager"></a>
+<h1>Managed Object -  
+						PbmProfileProfileManager(pbm.profile.ProfileManager)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.ServiceInstanceContent.html#field_detail">PbmServiceInstanceContent</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.capability.provider.CapabilityObjectMetadataPerCategory.html">PbmCapabilityMetadataPerCategory</a>, <a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a>, <a href="pbm.profile.CapabilityBasedProfileUpdateSpec.html">PbmCapabilityProfileUpdateSpec</a>, <a href="pbm.capability.provider.CapabilityObjectSchema.VendorResourceTypeInfo.html">PbmCapabilityVendorResourceTypeInfo</a>, <a href="pbm.profile.provider.DatastoreSpaceStatistics.html">PbmDatastoreSpaceStatistics</a>, <a href="pbm.profile.DefaultProfileInfo.html">PbmDefaultProfileInfo</a>, <a href="pbm.placement.PlacementHub.html">PbmPlacementHub</a>, <a href="pbm.profile.Profile.html">PbmProfile</a>, <a href="pbm.profile.ProfileId.html">PbmProfileId</a>, <a href="pbm.profile.ProfileOperationOutcome.html">PbmProfileOperationOutcome</a>, <a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a>, <a href="pbm.profile.QueryProfileResult.html">PbmQueryProfileResult</a>, <a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a>
+</dd>
+<dt>Since </dt>
+<dd>1.0</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         The <a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a> supports operations on virtual machine storage profiles.
+ A Storage Policy API profile consists of a set of <i>subprofiles</i>.
+ A subprofile corresponds to a <i>rule set</i> in the vSphere Web Client.
+ <p>
+ Virtual machine storage profiles specify the storage requirements
+ for virtual machine files. You use the vSphere Web Client to define virtual machine
+ storage profiles. The requirements
+ (<a href="pbm.profile.CapabilityBasedProfile.html">PbmCapabilityProfile</a>.<a href="pbm.profile.CapabilityBasedProfile.html#constraints">constraints</a>)
+ impose constraints on the placement of virtual machine files.
+ <p>
+ The Storage Policy Server also supports datastore profiles. Datastore profiles
+ define storage capabilities. Storage capabilities are resources defined by
+ storage providers. Storage requirements are based on storage capabilities.
+ When you associate a storage profile with a virtual machine or virtual disk,
+ the Server sends the profile to the storage provider. When you perform compliance
+ checking (<a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a>), the storage provider
+ compares the requirements with the capabilities.
+ <p>
+ The <a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a> supports the following operations on
+ virtual machine storage profiles.
+ <ul>
+ <li>Create, update, and delete storage profiles.</li>
+ <li>Retrieve profile data based on specified criteria.</li>
+ <li>Retrieve storage vendor data.</li>
+ </ul>
+ <p>
+ The following figure shows the set of data objects that comprise
+ a storage profile specification (<a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a>).
+ You pass a storage profile specification to the Storage Policy Server
+ when you call the following methods:
+ </p>
+ <ul>
+ <li><a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>.<a href="pbm.profile.ProfileManager.html#create">PbmCreate</a></li>
+ <li><a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>.<a href="pbm.placement.PlacementSolver.html#checkCompatibilityWithSpec">PbmCheckCompatibilityWithSpec</a></li>
+ <li><a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>.<a href="pbm.placement.PlacementSolver.html#queryMatchingHubWithSpec">PbmQueryMatchingHubWithSpec</a></li>
+ </ul>
+ <p>
+ <map name="spbm_data_hierarchy" id="spbm_data_hierarchy">
+ <area shape="rect" coords="9, 5, 226, 105" href="pbm.profile.CapabilityBasedProfileCreateSpec.html" alt="PbmCapabilityProfileCreateSpec page"/>
+ <area shape="rect" coords="252, 33, 420, 79" href="pbm.profile.ResourceType.html" alt="PbmProfileResourceType page"/>
+ <area shape="rect" coords="47, 117, 273, 176" href="pbm.profile.SubProfileCapabilityConstraints.html" alt="PbmCapabilitySubProfileConstraints page"/>
+ <area shape="rect" coords="144, 190, 315, 275" href="pbm.profile.SubProfileCapabilityConstraints.SubProfile.html" alt="PbmCapabilitySubProfile page"/>
+ <area shape="rect" coords="195, 287, 345, 351" href="pbm.capability.CapabilityInstance.html" alt="PbmCapabilityInstance page"/>
+ <area shape="rect" coords="393, 269, 604, 333" href="pbm.capability.CapabilityMetadata.UniqueId.html" alt="PbmCapabilityMetadataUniqueId page"/>
+ <area shape="rect" coords="174, 370, 383, 417" href="pbm.capability.ConstraintInstance.html" alt="PbmCapabilityConstraintInstance page"/>
+ <area shape="rect" coords="424, 363, 621, 422" href="pbm.capability.PropertyInstance.html" alt="PbmCapabilityPropertyInstance page"/>
+ </map>
+ <table width="810" cellpadding="0" cellspacing="0" border="0">
+ <tr><td width="800">
+ <img src="Pbm-data-objects.gif" alt="SPBM data objects" border="0" usemap="#spbm_data_hierarchy"/>
+ </td></tr>
+ </table>
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#assignDefaultRequirementProfile">PbmAssignDefaultRequirementProfile</a>, <a href="#create">PbmCreate</a>, <a href="#delete">PbmDelete</a>, <a href="#fetchCapabilityMetadata">PbmFetchCapabilityMetadata</a>, <a href="#fetchResourceType">PbmFetchResourceType</a>, <a href="#fetchVendorInfo">PbmFetchVendorInfo</a>, <a href="#findApplicableDefaultProfile">PbmFindApplicableDefaultProfile</a>, <a href="#queryAssociatedEntity">PbmQueryAssociatedEntity</a>, <a href="#queryAssociatedProfile">PbmQueryAssociatedProfile</a>, <a href="#queryAssociatedProfiles">PbmQueryAssociatedProfiles</a>, <a href="#queryDefaultRequirementProfile">PbmQueryDefaultRequirementProfile</a>, <a href="#queryDefaultRequirementProfiles">PbmQueryDefaultRequirementProfiles</a>, <a href="#queryProfile">PbmQueryProfile</a>, <a href="#querySpaceStatsForStorageContainer">PbmQuerySpaceStatsForStorageContainer</a>, <a href="#resetDefaultRequirementProfile">PbmResetDefaultRequirementProfile</a>, <a href="#resetVSanDefaultProfile">PbmResetVSanDefaultProfile</a>, <a href="#retrieveContent">PbmRetrieveContent</a>, <a href="#update">PbmUpdate</a></td>
+</tr>
+</table>
+<br>
+<a id="assignDefaultRequirementProfile" name="assignDefaultRequirementProfile"></a>
+<h1>PbmAssignDefaultRequirementProfile(assignDefaultRequirementProfile)</h1>
+<p></p>
+         Assign the given profile as the default profile for the given datastores.
+ This is an atomic operation. Either all the datastores will be assigned
+ the default profile or none will be.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.Update</dd>
+<dt>Since </dt>
+<dd>2.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>profile</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         The profile that needs to be made default profile.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>datastores</strong></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         The datastores for which the profile needs to be made as default profile.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if one of the hub is not a datastore or profile cannot be used as default requirement profile for any of the hub.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Internal service error</td>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.LegacyHubsNotSupported.html">PbmLegacyHubsNotSupported</a></td><td>Thrown if any of the hub in datastores argument is legacy (VMFS or NFS) datastores.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.NonExistentHubs.html">PbmNonExistentHubs</a></td><td>Thrown if any of the hub in datastores argument is non existent.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmAssignDefaultRequirementProfile-textarea');expandcontent(this, 'PbmAssignDefaultRequirementProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmAssignDefaultRequirementProfile-div">
+<textarea cols="20" rows="10" name="PbmAssignDefaultRequirementProfile-textarea" wrap="off" readonly="1" id="PbmAssignDefaultRequirementProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmAssignDefaultRequirementProfile" type="pbm:PbmAssignDefaultRequirementProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmAssignDefaultRequirementProfileResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="create" name="create"></a>
+<h1>PbmCreate(create)</h1>
+<p></p>
+         Creates a capability-based storage profile. A capability-based profile
+ contains requirements that are derived from tag-defined capabilities
+ or from VMware VSAN capabilities.
+ <ul>
+ <li>Use the vSphere Web Client to define tags for capabilities.</li>
+ <li>VSAN storage capabilities are system-defined.</li>
+ </ul>
+ <p>
+ A profile is a collection of subprofiles
+ (<a href="pbm.profile.SubProfileCapabilityConstraints.SubProfile.html">PbmCapabilitySubProfile</a>).
+ A subprofile references storage capabilities and defines requirements
+ based on those capabilities.
+ <p>
+ To define a storage requirement, you specify constraint property instance values
+ (<a href="pbm.capability.PropertyInstance.html">PbmCapabilityPropertyInstance</a>) that use Storage Policy API builtin
+ types (<a href="pbm.capability.types.BuiltinTypesEnum.html">PbmBuiltinType</a>) to create expressions
+ for compliance checking.
+ <p>
+ The profile specification contains lists of constraint property instances
+ (<a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a>.<a href="pbm.profile.CapabilityBasedProfileCreateSpec.html#constraints">constraints</a>.<a href="pbm.profile.SubProfileCapabilityConstraints.html#subProfiles">subProfiles</a>[].<a href="pbm.profile.SubProfileCapabilityConstraints.SubProfile.html#capability">capability</a>[].<a href="pbm.capability.CapabilityInstance.html#constraint">constraint</a>[].<a href="pbm.capability.ConstraintInstance.html#propertyInstance">propertyInstance</a>[]).
+ The constraints are based on storage capabilities described in metadata
+ (<a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a>) and in the datastore profiles.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.Update</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>createSpec</strong></td><td><a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a></td><td>
+<p></p>
+         Capability-based profile specification.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>Identifier for the new profile.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if <a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a> is invalid.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.DuplicateName.html">PbmDuplicateName</a></td><td>Thrown if a profile with the same name already exists.</td>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.ProfileStorageFault.html">PbmFaultProfileStorageFault</a></td><td>Thrown if there is an error in persisting the profile.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmCreate-textarea');expandcontent(this, 'PbmCreate-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmCreate-div">
+<textarea cols="20" rows="10" name="PbmCreate-textarea" wrap="off" readonly="1" id="PbmCreate-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCreate" type="pbm:PbmCreateRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCreateResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfileId"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="delete" name="delete"></a>
+<h1>PbmDelete(delete)</h1>
+<p></p>
+         Deletes one or more profiles. If the method successfully deletes a
+ profile, its identifier is no longer valid.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.Update</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>profileId</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId[]</a></td><td>
+<p></p>
+         Array of profile identifiers.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.ProfileOperationOutcome.html">PbmProfileOperationOutcome[]</a></td><td>Array of result objects, one for each profile specified in the call to the <code>PbmDelete</code> method. <p> The result object contains the profile ID and, if an error occurred, it also describes the fault. The method can return one of the following faults if the profile cannot be deleted: <ul> <li><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a> - Profile is not recognized by the system.</li> <li><a href="pbm.fault.ProfileStorageFault.html">PbmFaultProfileStorageFault</a> - Internal service error.</li> <li><a href="pbm.fault.ResourceInUse.html">PbmResourceInUse</a> - Profile is still associated with an entity.</li> </ul></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmDelete-textarea');expandcontent(this, 'PbmDelete-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmDelete-div">
+<textarea cols="20" rows="10" name="PbmDelete-textarea" wrap="off" readonly="1" id="PbmDelete-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmDelete" type="pbm:PbmDeleteRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmDeleteResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfileOperationOutcome" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="fetchCapabilityMetadata" name="fetchCapabilityMetadata"></a>
+<h1>PbmFetchCapabilityMetadata(fetchCapabilityMetadata)</h1>
+<p></p>
+         Retrieves capability metadata.
+ <p>
+ Each capability metadata object has a unique identifier
+ (<a href="pbm.capability.CapabilityMetadata.html">PbmCapabilityMetadata</a>.<a href="pbm.capability.CapabilityMetadata.html#id">id</a>).
+ The identifier object (<a href="pbm.capability.CapabilityMetadata.UniqueId.html">PbmCapabilityMetadataUniqueId</a>)
+ contains the unique ID and it identifies the namespace to which
+ the capability metadata object belongs.
+ <p>
+ Each registered namespace is required to be globally unique.
+ You can associate a capability metadata object with a unique vendor and
+ resource type by using the namespace and the
+ <a href="pbm.capability.provider.CapabilityObjectSchema.VendorResourceTypeInfo.html">PbmCapabilityVendorResourceTypeInfo</a>
+ data returned by the <a href="pbm.profile.ProfileManager.html#fetchVendorInfo">PbmFetchVendorInfo</a> method.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>resourceType</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a></td><td>
+<p></p>
+         Type of profile resource. You can specify only "STORAGE".
+ If you do not specify the resource type, the method returns capability metadata
+ for the storage resources.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>vendorUuid</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Unique identifier for the vendor/owner of capability
+ metadata. If omitted, the Server searchs all capability metadata registered
+ with the system. The specified vendor ID must match
+ <a href="pbm.capability.provider.CapabilityObjectSchema.VendorInfo.html">PbmCapabilitySchemaVendorInfo</a>.<a href="pbm.capability.provider.CapabilityObjectSchema.VendorInfo.html#vendorUuid">vendorUuid</a>.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.capability.provider.CapabilityObjectMetadataPerCategory.html">PbmCapabilityMetadataPerCategory[]</a></td><td>Array of capability metadata objects, classified by category (<a href="pbm.capability.provider.CapabilityObjectMetadataPerCategory.html">PbmCapabilityMetadataPerCategory</a>.<a href="pbm.capability.provider.CapabilityObjectMetadataPerCategory.html#subCategory">subCategory</a>).</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmFetchCapabilityMetadata-textarea');expandcontent(this, 'PbmFetchCapabilityMetadata-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmFetchCapabilityMetadata-div">
+<textarea cols="20" rows="10" name="PbmFetchCapabilityMetadata-textarea" wrap="off" readonly="1" id="PbmFetchCapabilityMetadata-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchCapabilityMetadata" type="pbm:PbmFetchCapabilityMetadataRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchCapabilityMetadataResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmCapabilityMetadataPerCategory" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="fetchResourceType" name="fetchResourceType"></a>
+<h1>PbmFetchResourceType(fetchResourceType)</h1>
+<p></p>
+         Retrieves information about various resource types registered with the system.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.ResourceType.html">PbmProfileResourceType[]</a></td><td>Array of resource types.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmFetchResourceType-textarea');expandcontent(this, 'PbmFetchResourceType-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmFetchResourceType-div">
+<textarea cols="20" rows="10" name="PbmFetchResourceType-textarea" wrap="off" readonly="1" id="PbmFetchResourceType-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchResourceType" type="pbm:PbmFetchResourceTypeRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchResourceTypeResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfileResourceType" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="fetchVendorInfo" name="fetchVendorInfo"></a>
+<h1>PbmFetchVendorInfo(fetchVendorInfo)</h1>
+<p></p>
+         Retrieve information about various capability metadata owners/vendors
+ registered with the system, the resource type for which they are registered,
+ and schema namespaces to which they belong.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>resourceType</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a></td><td>
+<p></p>
+         Specifies the resource type. The Server supports
+ the STORAGE resource type only. You must specify the resource type.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.capability.provider.CapabilityObjectSchema.VendorResourceTypeInfo.html">PbmCapabilityVendorResourceTypeInfo[]</a></td><td>Vendor and namespace information.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmFetchVendorInfo-textarea');expandcontent(this, 'PbmFetchVendorInfo-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmFetchVendorInfo-div">
+<textarea cols="20" rows="10" name="PbmFetchVendorInfo-textarea" wrap="off" readonly="1" id="PbmFetchVendorInfo-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchVendorInfo" type="pbm:PbmFetchVendorInfoRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchVendorInfoResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmCapabilityVendorResourceTypeInfo" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="findApplicableDefaultProfile" name="findApplicableDefaultProfile"></a>
+<h1>PbmFindApplicableDefaultProfile(findApplicableDefaultProfile)</h1>
+<p></p>
+         Returns the profiles that can be made as default profile for all the given datastores.
+ A profile can be made as a default profile for a datastore only if it contains a ruleset
+ from the namespace the datastore belongs to.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+<dt>Since </dt>
+<dd>2.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>datastores</strong></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         Datastores for which the default profile is found out. Note that
+              the datastore pods/clusters are not supported.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.Profile.html">PbmProfile[]</a></td><td>Profile[] Returns all the requirements profiles that can be made as default profile for the given datastores. If no profile can be made as default for all datastores, then an empty array is returned. Note that the profiles returned may or may not be compatible with the datastores.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if the datastores argument contains a non-datastore, example storage pod.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Internal service error.</td>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.LegacyHubsNotSupported.html">PbmLegacyHubsNotSupported</a></td><td>Thrown if any of the hubs in datastores argument are legacy (VMFS or NFS) datastores.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.NonExistentHubs.html">PbmNonExistentHubs</a></td><td>Thrown if any of the hubs in datastores argument are non existent.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmFindApplicableDefaultProfile-textarea');expandcontent(this, 'PbmFindApplicableDefaultProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmFindApplicableDefaultProfile-div">
+<textarea cols="20" rows="10" name="PbmFindApplicableDefaultProfile-textarea" wrap="off" readonly="1" id="PbmFindApplicableDefaultProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFindApplicableDefaultProfile" type="pbm:PbmFindApplicableDefaultProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFindApplicableDefaultProfileResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfile" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryAssociatedEntity" name="queryAssociatedEntity"></a>
+<h1>PbmQueryAssociatedEntity(queryAssociatedEntity)</h1>
+<p></p>
+         Retrieves entities associated with the specified profile.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>profile</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Profile identifier.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>entityType</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         If specified, the method returns only those entities
+ which match the type. The <code>entityType</code> string value must match
+ one of the <a href="pbm.ServerObjectRef.ObjectType.html">PbmObjectType</a> values.
+ If not specified, the method returns all entities associated with the profile.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef[]</a></td><td>Array of entities associated with the profile.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryAssociatedEntity-textarea');expandcontent(this, 'PbmQueryAssociatedEntity-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryAssociatedEntity-div">
+<textarea cols="20" rows="10" name="PbmQueryAssociatedEntity-textarea" wrap="off" readonly="1" id="PbmQueryAssociatedEntity-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryAssociatedEntity" type="pbm:PbmQueryAssociatedEntityRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryAssociatedEntityResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmServerObjectRef" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryAssociatedProfile" name="queryAssociatedProfile"></a>
+<h1>PbmQueryAssociatedProfile(queryAssociatedProfile)</h1>
+<p></p>
+         Returns identifiers for profiles associated with a virtual machine,
+ virtual disk, or datastore.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entity</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a></td><td>
+<p></p>
+         Reference to a virtual machine, virtual disk, or datastore.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.ProfileId.html">PbmProfileId[]</a></td><td>Array of profiles associated with the entity.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryAssociatedProfile-textarea');expandcontent(this, 'PbmQueryAssociatedProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryAssociatedProfile-div">
+<textarea cols="20" rows="10" name="PbmQueryAssociatedProfile-textarea" wrap="off" readonly="1" id="PbmQueryAssociatedProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryAssociatedProfile" type="pbm:PbmQueryAssociatedProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryAssociatedProfileResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfileId" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryAssociatedProfiles" name="queryAssociatedProfiles"></a>
+<h1>PbmQueryAssociatedProfiles(queryAssociatedProfiles)</h1>
+<p></p>
+         Returns profiles associated with the specified entities.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entities</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef[]</a></td><td>
+<p></p>
+         Array of server object references.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.QueryProfileResult.html">PbmQueryProfileResult[]</a></td><td>Array of query result objects. Each <a href="pbm.profile.QueryProfileResult.html">PbmQueryProfileResult</a> object identifies a virtual machine, virtual disk, or datastore and it contains a list of the profiles associated with that entity. It also describes the fault, if there is an error associated with one of the profiles.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryAssociatedProfiles-textarea');expandcontent(this, 'PbmQueryAssociatedProfiles-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryAssociatedProfiles-div">
+<textarea cols="20" rows="10" name="PbmQueryAssociatedProfiles-textarea" wrap="off" readonly="1" id="PbmQueryAssociatedProfiles-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryAssociatedProfiles" type="pbm:PbmQueryAssociatedProfilesRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryAssociatedProfilesResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmQueryProfileResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryDefaultRequirementProfile" name="queryDefaultRequirementProfile"></a>
+<h1>PbmQueryDefaultRequirementProfile(queryDefaultRequirementProfile)</h1>
+<p></p>
+         Returns the default requirement profile ID for the given datastore. For
+ legacy hub the API returns {@code null}.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+<dt>Since </dt>
+<dd>2.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>hub</strong></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub</a></td><td>
+<p></p>
+         Placement hub (i.e. datastore).
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>Profile Id of the Default Requirement Profile. For legacy hub the API returns {@code null}.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if hub is invalid (does not denote a datastore).</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Internal service error.</td>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.NonExistentHubs.html">PbmNonExistentHubs</a></td><td>Thrown if hub is non existent.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryDefaultRequirementProfile-textarea');expandcontent(this, 'PbmQueryDefaultRequirementProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryDefaultRequirementProfile-div">
+<textarea cols="20" rows="10" name="PbmQueryDefaultRequirementProfile-textarea" wrap="off" readonly="1" id="PbmQueryDefaultRequirementProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryDefaultRequirementProfile" type="pbm:PbmQueryDefaultRequirementProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryDefaultRequirementProfileResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfileId" minOccurs="0"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryDefaultRequirementProfiles" name="queryDefaultRequirementProfiles"></a>
+<h1>PbmQueryDefaultRequirementProfiles(queryDefaultRequirementProfiles)</h1>
+<p></p>
+         Returns the default profiles for the given datastores. For legacy
+ datastores we set {@code DefaultProfileInfo.defaultProfile} to
+ {@code null}.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+<dt>Since </dt>
+<dd>2.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>datastores</strong></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         The datastores for which the default profiles are requested. For
+           legacy datastores we set
+           {@code DefaultProfileInfo.defaultProfile} to {@code null}.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.DefaultProfileInfo.html">PbmDefaultProfileInfo[]</a></td><td>DefaultProfileInfo Default profile information.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if one of the datastore is invalid (does not denote a datastore).</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Internal service error.</td>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.NonExistentHubs.html">PbmNonExistentHubs</a></td><td>Thrown if any of the datastore in datastores argument are non existent.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryDefaultRequirementProfiles-textarea');expandcontent(this, 'PbmQueryDefaultRequirementProfiles-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryDefaultRequirementProfiles-div">
+<textarea cols="20" rows="10" name="PbmQueryDefaultRequirementProfiles-textarea" wrap="off" readonly="1" id="PbmQueryDefaultRequirementProfiles-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryDefaultRequirementProfiles" type="pbm:PbmQueryDefaultRequirementProfilesRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryDefaultRequirementProfilesResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmDefaultProfileInfo" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryProfile" name="queryProfile"></a>
+<h1>PbmQueryProfile(queryProfile)</h1>
+<p></p>
+         Returns requirement profiles or resource profiles, or both.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>resourceType</strong></td><td><a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a></td><td>
+<p></p>
+         Type of resource. You can specify only STORAGE.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>profileCategory</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Profile category. The string value must correspond
+ to one of the <a href="pbm.profile.CapabilityBasedProfile.ProfileCategoryEnum.html">PbmProfileCategoryEnum</a> values.
+ If you do not specify a profile category, the method returns profiles in all
+ categories.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.ProfileId.html">PbmProfileId[]</a></td><td>Array of storage profile identifiers.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if the Server does not recognize the specified resourceType or profileCategory.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryProfile-textarea');expandcontent(this, 'PbmQueryProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryProfile-div">
+<textarea cols="20" rows="10" name="PbmQueryProfile-textarea" wrap="off" readonly="1" id="PbmQueryProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryProfile" type="pbm:PbmQueryProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryProfileResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfileId" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="querySpaceStatsForStorageContainer" name="querySpaceStatsForStorageContainer"></a>
+<h1>PbmQuerySpaceStatsForStorageContainer(querySpaceStatsForStorageContainer)</h1>
+<p></p>
+         Retrieves space statistics of a datastore.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+<dt>Since </dt>
+<dd>2.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>datastore</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a></td><td>
+<p></p>
+         Entity for which space statistics are being requested i.e datastore.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>capabilityProfileId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId[]</a></td><td>
+<p></p>
+         - capability profile Ids.
+                              If omitted, the statistics for the container
+                              as a whole would be returned.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.provider.DatastoreSpaceStatistics.html">PbmDatastoreSpaceStatistics[]</a></td><td>Array of Space stats of datastore for each capabilityProfileId.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>- Thrown if the input datastore parameter is null or its type is not datastore or its key is empty.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>- Thrown if server internal error occurred or if storage container does not support the profile.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQuerySpaceStatsForStorageContainer-textarea');expandcontent(this, 'PbmQuerySpaceStatsForStorageContainer-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQuerySpaceStatsForStorageContainer-div">
+<textarea cols="20" rows="10" name="PbmQuerySpaceStatsForStorageContainer-textarea" wrap="off" readonly="1" id="PbmQuerySpaceStatsForStorageContainer-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQuerySpaceStatsForStorageContainer" type="pbm:PbmQuerySpaceStatsForStorageContainerRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQuerySpaceStatsForStorageContainerResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmDatastoreSpaceStatistics" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="resetDefaultRequirementProfile" name="resetDefaultRequirementProfile"></a>
+<h1>PbmResetDefaultRequirementProfile(resetDefaultRequirementProfile)</h1>
+<B>Deprecated.</B><I>
+         since it is not supported.
+      </I>
+<p></p>
+         Not supported in this release.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.Update</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>profile</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Profile to reset.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmResetDefaultRequirementProfile-textarea');expandcontent(this, 'PbmResetDefaultRequirementProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmResetDefaultRequirementProfile-div">
+<textarea cols="20" rows="10" name="PbmResetDefaultRequirementProfile-textarea" wrap="off" readonly="1" id="PbmResetDefaultRequirementProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmResetDefaultRequirementProfile" type="pbm:PbmResetDefaultRequirementProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmResetDefaultRequirementProfileResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="resetVSanDefaultProfile" name="resetVSanDefaultProfile"></a>
+<h1>PbmResetVSanDefaultProfile(resetVSanDefaultProfile)</h1>
+<p></p>
+         Resets the system pre-created VSAN default profile to factory defaults.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.Update</dd>
+<dt>Since </dt>
+<dd>2.0</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmResetVSanDefaultProfile-textarea');expandcontent(this, 'PbmResetVSanDefaultProfile-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmResetVSanDefaultProfile-div">
+<textarea cols="20" rows="10" name="PbmResetVSanDefaultProfile-textarea" wrap="off" readonly="1" id="PbmResetVSanDefaultProfile-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmResetVSanDefaultProfile" type="pbm:PbmResetVSanDefaultProfileRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmResetVSanDefaultProfileResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="retrieveContent" name="retrieveContent"></a>
+<h1>PbmRetrieveContent(retrieveContent)</h1>
+<p></p>
+         Returns one or more storage profiles.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>profileIds</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId[]</a></td><td>
+<p></p>
+         Array of storage profile identifiers.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.profile.Profile.html">PbmProfile[]</a></td><td>Array of storage profiles.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if the Server does not recognize any of the profileIds.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmRetrieveContent-textarea');expandcontent(this, 'PbmRetrieveContent-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmRetrieveContent-div">
+<textarea cols="20" rows="10" name="PbmRetrieveContent-textarea" wrap="off" readonly="1" id="PbmRetrieveContent-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmRetrieveContent" type="pbm:PbmRetrieveContentRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmRetrieveContentResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmProfile" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="update" name="update"></a>
+<h1>PbmUpdate(update)</h1>
+<p></p>
+         Updates a storage profile.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.Update</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>profileId</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Profile identifier.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>updateSpec</strong></td><td><a href="pbm.profile.CapabilityBasedProfileUpdateSpec.html">PbmCapabilityProfileUpdateSpec</a></td><td>
+<p></p>
+         Capability-based update specification.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if the Server does not recognize <a href="pbm.profile.ProfileId.html">PbmProfileId</a>.</td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.ProfileStorageFault.html">PbmFaultProfileStorageFault</a></td><td>in case of internal service error.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmUpdate-textarea');expandcontent(this, 'PbmUpdate-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmUpdate-div">
+<textarea cols="20" rows="10" name="PbmUpdate-textarea" wrap="off" readonly="1" id="PbmUpdate-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmUpdate" type="pbm:PbmUpdateRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmUpdateResponse">
+            <complexType/>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.capability.types.BuiltinTypesEnum" name="pbm.capability.types.BuiltinTypesEnum"></a>
+<h1>Enum - 
+						PbmBuiltinType(pbm.capability.types.BuiltinTypesEnum)</h1>
+<dl>
+<p></p>
+</dl>
+<br>
+<h2>Enum Description</h2>
+<p></p>
+         The <a href="pbm.capability.types.BuiltinTypesEnum.html">PbmBuiltinType</a> enumerated type defines datatypes
+ for storage profiles. Property metadata
+ (<a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a>) uses the builtin types
+ to define data types for storage capabilties and requirements.
+ It may also specify the semantics that are applied to a collection
+ of builtin type values. See <a href="pbm.capability.TypeInfo.html">PbmCapabilityTypeInfo</a>.
+ These semantics are specified as a generic builtin type.
+ See <a href="pbm.capability.GenericTypeInfo.html">PbmCapabilityGenericTypeInfo</a>.
+ The type information determines how capabilty constraints are interpreted
+ (<a href="pbm.capability.CapabilityInstance.html">PbmCapabilityInstance</a>.<a href="pbm.capability.CapabilityInstance.html#constraint">constraint</a>[].<a href="pbm.capability.ConstraintInstance.html#propertyInstance">propertyInstance</a>[].<a href="pbm.capability.PropertyInstance.html#value">value</a>).
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Enum Constants</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><a id="VMW_TIMESPAN" name="VMW_TIMESPAN"></a>VMW_TIMESPAN</td><td>
+      Timespan value (<a href="pbm.capability.types.TimeSpan.html">PbmCapabilityTimeSpan</a>).  This datatype supports
+ the following constraint values.
+ <ul>
+ <li>Single value</li>
+ <li>Full or partial range of values (<a href="pbm.capability.types.Range.html">PbmCapabilityRange</a>)</li>
+ <li>Discrete set of values (<a href="pbm.capability.types.DiscreteSet.html">PbmCapabilityDiscreteSet</a>)</li>
+ </ul>
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="XSD_BOOLEAN" name="XSD_BOOLEAN"></a>XSD_BOOLEAN</td><td>
+      Boolean value.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="XSD_DATETIME" name="XSD_DATETIME"></a>XSD_DATETIME</td><td>
+      Date and time value.
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="XSD_DOUBLE" name="XSD_DOUBLE"></a>XSD_DOUBLE</td><td>
+      Double precision floating point value. This datatype supports the following
+ constraint values.
+ <ul>
+ <li>Single value</li>
+ <li>Full or partial range of values (<a href="pbm.capability.types.Range.html">PbmCapabilityRange</a>)</li>
+ <li>Discrete set of values (<a href="pbm.capability.types.DiscreteSet.html">PbmCapabilityDiscreteSet</a>)</li>
+ </ul>
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="XSD_INT" name="XSD_INT"></a>XSD_INT</td><td>
+      Integer value. This datatype supports the following constraint values.
+ <ul>
+ <li>Single value</li>
+ <li>Full or partial range of values (<a href="pbm.capability.types.Range.html">PbmCapabilityRange</a>)</li>
+ <li>Discrete set of values (<a href="pbm.capability.types.DiscreteSet.html">PbmCapabilityDiscreteSet</a>)</li>
+ </ul>
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="XSD_INTEGER" name="XSD_INTEGER"></a>XSD_INTEGER</td><td>
+      Datatype not supported. Use XSD_INT instead.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="XSD_LONG" name="XSD_LONG"></a>XSD_LONG</td><td>
+      Unsigned long value. This datatype supports the following constraint values.
+ <ul>
+ <li>Single value</li>
+ <li>Full or partial range of values (<a href="pbm.capability.types.Range.html">PbmCapabilityRange</a>)</li>
+ <li>Discrete set of values (<a href="pbm.capability.types.DiscreteSet.html">PbmCapabilityDiscreteSet</a>)</li>
+ </ul>
+   <br>
+</td>
+</tr>
+<tr class="r0">
+<td><a id="XSD_SHORT" name="XSD_SHORT"></a>XSD_SHORT</td><td>
+      Datatype not supported.
+   <br>
+</td>
+</tr>
+<tr class="r1">
+<td><a id="XSD_STRING" name="XSD_STRING"></a>XSD_STRING</td><td>
+      String value. This datatype supports a single value
+ or a discrete set of values (<a href="pbm.capability.types.DiscreteSet.html">PbmCapabilityDiscreteSet</a>).
+   <br>
+</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <simpleType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmBuiltinType">
+            <restriction base="xsd:string">
+               <enumeration value="XSD_LONG"/>
+               <enumeration value="XSD_SHORT"/>
+               <enumeration value="XSD_INTEGER"/>
+               <enumeration value="XSD_INT"/>
+               <enumeration value="XSD_STRING"/>
+               <enumeration value="XSD_BOOLEAN"/>
+               <enumeration value="XSD_DOUBLE"/>
+               <enumeration value="XSD_DATETIME"/>
+               <enumeration value="VMW_TIMESPAN"/>
+            </restriction>
+         </simpleType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

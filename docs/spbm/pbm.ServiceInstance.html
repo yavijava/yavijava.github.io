@@ -1,0 +1,174 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.ServiceInstance" name="pbm.ServiceInstance"></a>
+<h1>Managed Object -  
+						PbmServiceInstance(pbm.ServiceInstance)</h1>
+<dl>
+<dt>See also</dt>
+<dd>
+<a href="pbm.ServiceInstanceContent.html">PbmServiceInstanceContent</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         The <a href="pbm.ServiceInstance.html">PbmServiceInstance</a> managed object is the root object of the
+ Storage Policy service. After you connect to the Storage Policy Server,
+ you create a reference to the <a href="pbm.ServiceInstance.html">PbmServiceInstance</a>, and use
+ that reference to retrieve the <a href="pbm.ServiceInstanceContent.html">PbmServiceInstanceContent</a>
+ data object. The <a href="pbm.ServiceInstanceContent.html">PbmServiceInstanceContent</a> object provides
+ access to the Storage Policy managed objects.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="content" name="content"></a><strong>content</strong><span title="Required Privilege: System.Anonymous" class="privilege-ref"> P</span></td><td><a href="pbm.ServiceInstanceContent.html">PbmServiceInstanceContent</a></td><td>
+<p></p>
+         Contains references to Storage Policy managed objects.
+      <br>
+</td>
+</tr>
+</table>
+<span class="privilege-ref">P</span><span class="footnote">
+                  Required privilege:
+                  System.Anonymous</span>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#retrieveContent">PbmRetrieveServiceContent</a></td>
+</tr>
+</table>
+<br>
+<a id="retrieveContent" name="retrieveContent"></a>
+<h1>PbmRetrieveServiceContent(retrieveContent)</h1>
+<p></p>
+         Retrieves the properties of the Storage Policy service instance.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>System.Anonymous</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.ServiceInstance.html">PbmServiceInstance</a>
+						used to make the method call.
+					</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.ServiceInstanceContent.html">PbmServiceInstanceContent</a></td><td>Service instance properties that provide access to Storage Policy managed objects.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmRetrieveServiceContent-textarea');expandcontent(this, 'PbmRetrieveServiceContent-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmRetrieveServiceContent-div">
+<textarea cols="20" rows="10" name="PbmRetrieveServiceContent-textarea" wrap="off" readonly="1" id="PbmRetrieveServiceContent-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmRetrieveServiceContent" type="pbm:PbmRetrieveServiceContentRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmRetrieveServiceContentResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmServiceInstanceContent"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

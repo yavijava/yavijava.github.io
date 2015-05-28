@@ -1,0 +1,506 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.placement.PlacementSolver" name="pbm.placement.PlacementSolver"></a>
+<h1>Managed Object -  
+						PbmPlacementSolver(pbm.placement.PlacementSolver)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.ServiceInstanceContent.html#field_detail">PbmServiceInstanceContent</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a>, <a href="pbm.placement.CompatibilityResult.html">PbmPlacementCompatibilityResult</a>, <a href="pbm.placement.PlacementHub.html">PbmPlacementHub</a>, <a href="pbm.profile.ProfileId.html">PbmProfileId</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         The <a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a> data object provides methods to identify
+ placement hubs that support the capabilities to store virtual
+ machine files. A placement hub is a datastore or a storage pod.
+ A vSphere API <code>StoragePod</code> corresponds to Storage DRS in the vSphere Web Client.
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#checkCompatibility">PbmCheckCompatibility</a>, <a href="#checkCompatibilityWithSpec">PbmCheckCompatibilityWithSpec</a>, <a href="#queryMatchingHub">PbmQueryMatchingHub</a>, <a href="#queryMatchingHubWithSpec">PbmQueryMatchingHubWithSpec</a></td>
+</tr>
+</table>
+<br>
+<a id="checkCompatibility" name="checkCompatibility"></a>
+<h1>PbmCheckCompatibility(checkCompatibility)</h1>
+<p></p>
+         Performs placement compatibility checking based on a storage requirement
+ profile. If compatibility checking for a hub does not produce any errors,
+ the hub is considered a viable candidate for virtual machine file storage.
+ If this method is invoked for
+ <a href="pbm.profile.CapabilityBasedProfile.SystemCreatedProfileType.html#VVolDefaultProfile">VVolDefaultProfile</a>
+ profile, then all the vvol hubs are returned as matching.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>hubsToSearch</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         Candidate list of hubs, either datastores or storage pods or a
+           mix. If you do not specify this parameter, the Server uses all
+           of the datastores and storage pods for placement compatibility
+           checking.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>profile</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Storage requirement profile.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.placement.CompatibilityResult.html">PbmPlacementCompatibilityResult[]</a></td><td>Array of compatibility result objects. The results array contains one entry for each entry in the <code>hubsToSearch</code> list. If you do not specify a hubs list, the results array contains one entry for each datastore and storage pod in your vSphere environment. Any errors are described in the results array. <ul> <li>If there is an invalid argument error, the compatibility results will contain <code>InvalidArgument</code> faults indicating that the profile does not exist or that it does not match the requirement type.</li> <li>If there are errors or warnings during compatibility checking, the compatibility results will contain faults derived from <a href="pbm.fault.CompatibilityCheckFault.html">PbmCompatibilityCheckFault</a>.</li> <li>If this method is invoked for <a href="pbm.profile.CapabilityBasedProfile.SystemCreatedProfileType.html#VVolDefaultProfile">VVolDefaultProfile</a> then the compatibility results will contain faults derived from <a href="pbm.fault.CompatibilityCheckFault.html">PbmCompatibilityCheckFault</a> for non-vvol datastores. </li> </ul></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmCheckCompatibility-textarea');expandcontent(this, 'PbmCheckCompatibility-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmCheckCompatibility-div">
+<textarea cols="20" rows="10" name="PbmCheckCompatibility-textarea" wrap="off" readonly="1" id="PbmCheckCompatibility-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckCompatibility" type="pbm:PbmCheckCompatibilityRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckCompatibilityResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmPlacementCompatibilityResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="checkCompatibilityWithSpec" name="checkCompatibilityWithSpec"></a>
+<h1>PbmCheckCompatibilityWithSpec(checkCompatibilityWithSpec)</h1>
+<p></p>
+         Performs placement compatibility checking based on a storage profile
+ specification. If compatibility checking for a hub does not produce
+ any errors, the hub is considered a viable candidate for virtual
+ machine file storage.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>hubsToSearch</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         Candidate list of hubs, either datastores or storage pods
+ or a mix. If you do not specify this parameter, the Server uses all of the
+ datastores and storage pods for placement compatibility checking.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>profileSpec</strong></td><td><a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a></td><td>
+<p></p>
+         Specification for a capability based profile.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.placement.CompatibilityResult.html">PbmPlacementCompatibilityResult[]</a></td><td>Array of compatibility result objects. The results array contains one entry for each entry in the <code>hubsToSearch</code> list. If you do not specify a hubs list, the results array contains one entry for each datastore and storage pod in your vSphere environment. Any errors are described in the results array. <ul> <li>If there is an invalid argument error, the compatibility results will contain <code>InvalidArgument</code> faults indicating that the profile does not exist or that it does not match the requirement type.</li> <li>If there are errors or warnings during compatibility checking, the compatibility results will contain faults derived from <a href="pbm.fault.CompatibilityCheckFault.html">PbmCompatibilityCheckFault</a>.</li> </ul></td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmCheckCompatibilityWithSpec-textarea');expandcontent(this, 'PbmCheckCompatibilityWithSpec-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmCheckCompatibilityWithSpec-div">
+<textarea cols="20" rows="10" name="PbmCheckCompatibilityWithSpec-textarea" wrap="off" readonly="1" id="PbmCheckCompatibilityWithSpec-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckCompatibilityWithSpec" type="pbm:PbmCheckCompatibilityWithSpecRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckCompatibilityWithSpecResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmPlacementCompatibilityResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryMatchingHub" name="queryMatchingHub"></a>
+<h1>PbmQueryMatchingHub(queryMatchingHub)</h1>
+<p></p>
+         Finds matching placement hubs for the specified requirements profile. This
+ method returns only those hubs that match the profile. If this method is
+ invoked for
+ <a href="pbm.profile.CapabilityBasedProfile.SystemCreatedProfileType.html#VVolDefaultProfile">VVolDefaultProfile</a>
+ profile, then all the vvol hubs are returned as matching.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>hubsToSearch</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         Candidate list of hubs, either datastores or storage pods or a
+           mix. If you do not specify this parameter, the Server uses all
+           of the datastores and storage pods.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>profile</strong></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Storage requirement profile.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>Subset of the <code>hubsToSearch</code> list that satisfies the profile requirements. A storage pod is returned if and only if all its member datastores satisfy the profile requirements, whether the hubs list contains any of the member datastores or not. If a datastore and its storage pod are in the hubs list, and both satisfy the requirements, both are returned.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryMatchingHub-textarea');expandcontent(this, 'PbmQueryMatchingHub-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryMatchingHub-div">
+<textarea cols="20" rows="10" name="PbmQueryMatchingHub-textarea" wrap="off" readonly="1" id="PbmQueryMatchingHub-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryMatchingHub" type="pbm:PbmQueryMatchingHubRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryMatchingHubResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmPlacementHub" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="queryMatchingHubWithSpec" name="queryMatchingHubWithSpec"></a>
+<h1>PbmQueryMatchingHubWithSpec(queryMatchingHubWithSpec)</h1>
+<p></p>
+         Finds matching placement hubs based on a profile creation specification.
+ This method returns only those hubs that match the specification.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>hubsToSearch</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>
+<p></p>
+         Candidate list of hubs, either datastores or storage
+ pods or a mix. If you do not specify this parameter, the Server uses
+ all of the datastores and storage pods for placement compatibility checking.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>createSpec</strong></td><td><a href="pbm.profile.CapabilityBasedProfileCreateSpec.html">PbmCapabilityProfileCreateSpec</a></td><td>
+<p></p>
+         Storage profile creation specification.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.placement.PlacementHub.html">PbmPlacementHub[]</a></td><td>Subset of the <code>hubsToSearch</code> list that satisfies the profile requirements. A storage pod is returned if and only if all its member datastores satisfy the profile requirements, whether the hubs list contains any of the member datastores or not. If a datastore and its storage pod are in the hubs list, and both satisfy the requirements, both are returned.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r0">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmQueryMatchingHubWithSpec-textarea');expandcontent(this, 'PbmQueryMatchingHubWithSpec-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmQueryMatchingHubWithSpec-div">
+<textarea cols="20" rows="10" name="PbmQueryMatchingHubWithSpec-textarea" wrap="off" readonly="1" id="PbmQueryMatchingHubWithSpec-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryMatchingHubWithSpec" type="pbm:PbmQueryMatchingHubWithSpecRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmQueryMatchingHubWithSpecResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmPlacementHub" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

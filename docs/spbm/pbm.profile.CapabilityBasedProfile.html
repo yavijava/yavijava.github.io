@@ -1,0 +1,178 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.profile.CapabilityBasedProfile" name="pbm.profile.CapabilityBasedProfile"></a>
+<h1>Data Object - PbmCapabilityProfile(pbm.profile.CapabilityBasedProfile)</h1>
+<dl>
+<dt>Extended by</dt>
+<dd>
+<a href="pbm.profile.DefaultCapabilityBasedProfile.html">PbmDefaultCapabilityProfile</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="pbm.profile.Profile.html">PbmProfile</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.profile.CapabilityConstraints.html">PbmCapabilityConstraints</a>, <a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         The <a href="pbm.profile.CapabilityBasedProfile.html">PbmCapabilityProfile</a> data object defines
+ capability-based profiles. A capability-based profile is derived
+ from tag-based storage capabilities or from vSAN storage capabilities.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="constraints" name="constraints"></a><strong>constraints</strong></td><td><a href="pbm.profile.CapabilityConstraints.html">PbmCapabilityConstraints</a></td><td>
+<p></p>
+         Subprofiles that describe storage requirements or storage provider capabilities,
+ depending on the profile category (REQUIREMENT or RESOURCE).
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="generationId" name="generationId"></a><strong>generationId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:long</td><td>
+<p></p>
+         Generation ID is used to communicate the current version of the profile to VASA
+ providers. It is only applicable to REQUIREMENT profile types. Every time a
+ requirement profile is edited, the Server will increment the generationId. You
+ do not need to set the generationID. When an object is created (or
+ reconfigured), the Server will send the requirement profile content, profile ID and
+ the generationID to VASA provider.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="isDefault" name="isDefault"></a><strong>isDefault</strong></td><td>xsd:boolean</td><td><B>Deprecated.</B><I>
+         since it is not supported.
+      </I>
+<p></p>
+         Not supported in this release.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="profileCategory" name="profileCategory"></a><strong>profileCategory</strong></td><td>xsd:string</td><td>
+<p></p>
+         Indicates whether the profile is requirement
+ profile or a resource profile. The <code>profileCategory</code>
+ is a string value that corresponds to one of the
+ <a href="pbm.profile.CapabilityBasedProfile.ProfileCategoryEnum.html">PbmProfileCategoryEnum</a> values.
+ <ul>
+ <li>REQUIREMENT profile - Defines the storage constraints applied
+ to virtual machine placement. Requirements are defined by
+ the user and can be associated with virtual machines and virtual
+ disks. During provisioning, you can use a requirements profile
+ for compliance and placement checking to support
+ selection and configuration of resources.</li><br>
+ <li>RESOURCE profile - Specifies system-defined storage capabilities.
+ You cannot modify a resource profile. You cannot associate a resource
+ profile with vSphere entities, use it during provisioning, or target
+ entities for resource selection or configuration.
+ This type of  profile gives the user visibility into the capabilities
+ supported by the storage provider.</li>
+ </ul>
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="resourceType" name="resourceType"></a><strong>resourceType</strong></td><td><a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a></td><td>
+<p></p>
+         Type of the target resource to which the capability information applies.
+ A fixed enum that defines resource types for which capabilities can be defined
+ see <a href="pbm.profile.ResourceType.html">PbmProfileResourceType</a>, <a href="pbm.profile.ResourceTypeEnum.html">PbmProfileResourceTypeEnum</a>
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="systemCreatedProfileType" name="systemCreatedProfileType"></a><strong>systemCreatedProfileType</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Indicates the type of system pre-created default profile.
+ This will be set only for system pre-created default profiles. And
+ this is not set for RESOURCE profiles.
+      <p></p>
+<B><I>Since </I></B>2.0<br>
+</td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="pbm.profile.Profile.html">PbmProfile</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3"><a href="pbm.profile.Profile.html#createdBy">createdBy</a>, <a href="pbm.profile.Profile.html#creationTime">creationTime</a>, <a href="pbm.profile.Profile.html#description">description</a>, <a href="pbm.profile.Profile.html#lastUpdatedBy">lastUpdatedBy</a>, <a href="pbm.profile.Profile.html#lastUpdatedTime">lastUpdatedTime</a>, <a href="pbm.profile.Profile.html#name">name</a>, <a href="pbm.profile.Profile.html#profileId">profileId</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCapabilityProfile">
+            <complexContent>
+               <extension base="pbm:PbmProfile">
+                  <sequence>
+                     <element name="profileCategory" type="xsd:string"/>
+                     <element name="resourceType" type="pbm:PbmProfileResourceType"/>
+                     <element name="constraints" type="pbm:PbmCapabilityConstraints"/>
+                     <element name="generationId" type="xsd:long" minOccurs="0"/>
+                     <element name="isDefault" type="xsd:boolean"/>
+                     <element name="systemCreatedProfileType" type="xsd:string" minOccurs="0"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

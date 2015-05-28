@@ -1,0 +1,541 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.compliance.ComplianceManager" name="pbm.compliance.ComplianceManager"></a>
+<h1>Managed Object -  
+						PbmComplianceManager(pbm.compliance.ComplianceManager)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.ServiceInstanceContent.html#field_detail">PbmServiceInstanceContent</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a>, <a href="pbm.profile.ProfileId.html">PbmProfileId</a>, <a href="pbm.compliance.RollupComplianceResult.html">PbmRollupComplianceResult</a>, <a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a>
+</dd>
+<p></p>
+</dl>
+<br>
+<h2>Managed Object Description</h2>
+<p></p>
+         The <a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a> provides methods to verify the compliance
+ of virtual machine and virtual disk requirement profiles. When you provision
+ a virtual machine on a matching datastore, the Server sends the profile
+ to the storage provider. When you perform a compliance check, the storage
+ provider compares the requirements with its capabilities,
+ returns the results to the Server, and the Server returns the results
+ to your client. The Server maintains the compliance results for retrieval
+ at a later time.
+ <p>
+ You can check the compliance of one or more virtual machines and/or virtual disks.
+ You can also perform a rollup compliance check, in which the Server checks the
+ compliance of a virtual machine and all of its virtual disks.
+ </p>
+      <a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r0">
+<td colspan="3">None</td>
+</tr>
+</table>
+<br>
+<a id="method_detail" name="method_detail"></a>
+<p class="table-title">Methods</p>
+<table cellspacing="0">
+<tr class="r1">
+<th>
+				          Methods defined in this Managed Object
+				        </th>
+</tr>
+<tr class="r0">
+<td><a href="#checkCompliance">PbmCheckCompliance</a>, <a href="#checkRollupCompliance">PbmCheckRollupCompliance</a>, <a href="#fetchComplianceResult">PbmFetchComplianceResult</a>, <a href="#fetchRollupComplianceResult">PbmFetchRollupComplianceResult</a></td>
+</tr>
+</table>
+<br>
+<a id="checkCompliance" name="checkCompliance"></a>
+<h1>PbmCheckCompliance(checkCompliance)</h1>
+<p></p>
+         Checks compliance of the profiles associated with one or more
+ virtual machines and/or virtual disks.
+ <p>
+ The Server stores the compliance results for all of the storage entities
+ associated with the virtual machines and disks. You can call the
+ <a href="pbm.compliance.ComplianceManager.html#fetchComplianceResult">PbmFetchComplianceResult</a> method
+ to retrieve the stored results.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entities</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef[]</a></td><td>
+<p></p>
+         One or more references to storage entities.
+ You can specify virtual machines and virtual disks.
+ <ul>
+ <li>If the list of entities also contains datastores, the Server
+ will ignore the datastores.</li>
+ <li>If the list contains valid and invalid entities, the Server ignores
+ the invalid entities and returns results for the valid entities.
+ Invalid entities are entities that are not in the vCenter inventory.</li>
+ <li>If the list contains only datastores, the method throws
+ an <code>InvalidArgument</code> fault.</li>
+ <li>If the list contains virtual machines and disks and the entities
+ are invalid or have been deleted by the time of the request, the method
+ throws an <code>InvalidArgument</code> fault.</li>
+ </ul>
+ <p>
+ If an entity does not have an associated storage profile, the entity
+ is removed from the list.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>profile</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Not used. If specified, the Server ignores the value.
+ The Server uses the profiles associated with the specified entities.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult[]</a></td><td>Result of the compliance check. The returned array contains one result object for each entity specified in the method call.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if one of the following situations occurs: <ul><li>You do not specify an entity.</li> <li>You specify only datastores.</li> <li>All of the specified storage entities are invalid.</li></ul></td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmCheckCompliance-textarea');expandcontent(this, 'PbmCheckCompliance-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmCheckCompliance-div">
+<textarea cols="20" rows="10" name="PbmCheckCompliance-textarea" wrap="off" readonly="1" id="PbmCheckCompliance-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckCompliance" type="pbm:PbmCheckComplianceRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckComplianceResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="checkRollupCompliance" name="checkRollupCompliance"></a>
+<h1>PbmCheckRollupCompliance(checkRollupCompliance)</h1>
+<p></p>
+         Checks rollup compliance of virtual machines and returns the results to your
+ client. For a specified virtual machine, a rollup compliance check verifies
+ the storage requirements of the virtual machine and its virtual disks as
+ compared with the storage provider capabilities.
+ <p>
+ The Server stores the compliance results for all of the storage entities
+ associated with the virtual machines. You can call the
+ <a href="pbm.compliance.ComplianceManager.html#fetchRollupComplianceResult">PbmFetchRollupComplianceResult</a> method
+ to retrieve the stored results.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entity</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef[]</a></td><td>
+<p></p>
+         One or more references to virtual machines.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.compliance.RollupComplianceResult.html">PbmRollupComplianceResult[]</a></td><td>Result of the rollup compliance check. The returned array contains one rollup compliance result for each virtual machine. A rollup compliance result object includes the overall compliance status that represents the collective compliance status for the virtual machine and its virtual disks.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if one of the following situations occurs: <ul><li>You do not specify any entities.</li> <li>You specify only datastores or virtual disks.</li> <li>All of the specified virtual machines are invalid.</li></ul></td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmCheckRollupCompliance-textarea');expandcontent(this, 'PbmCheckRollupCompliance-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmCheckRollupCompliance-div">
+<textarea cols="20" rows="10" name="PbmCheckRollupCompliance-textarea" wrap="off" readonly="1" id="PbmCheckRollupCompliance-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckRollupCompliance" type="pbm:PbmCheckRollupComplianceRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCheckRollupComplianceResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmRollupComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="fetchComplianceResult" name="fetchComplianceResult"></a>
+<h1>PbmFetchComplianceResult(fetchComplianceResult)</h1>
+<p></p>
+         Retrieves the latest version of <a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a> objects that are
+ available for the specified entities.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entities</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef[]</a></td><td>
+<p></p>
+         One or more references to storage entities.
+ You can specify virtual machines and/or virtual disks.
+ <ul>
+ <li>If the list of entities also contains datastores, the Server
+ will ignore the datastores.</li>
+ <li>If the list contains valid and invalid entities, the Server ignores
+ the invalid entities and returns results for the valid entities.
+ Invalid entities are entities that are not in the vCenter inventory.</li>
+ <li>If the list contains only datastores, the method throws
+ an <code>InvalidArgument</code> fault.</li>
+ </ul>
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><strong>profile</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Not used. if specified, the Server ignores the value.
+ The Server uses the profiles associated with the specified entities.
+      <br>
+</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set </span>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult[]</a></td><td>Array of compliance results. The returned array contains one result object for each entity specified in the method call.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if one of the following situations occurs: <ul><li>You do not specify an entity.</li> <li>You specify only datastores.</li> <li>All of the specified storage entities are invalid.</li></ul></td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmFetchComplianceResult-textarea');expandcontent(this, 'PbmFetchComplianceResult-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmFetchComplianceResult-div">
+<textarea cols="20" rows="10" name="PbmFetchComplianceResult-textarea" wrap="off" readonly="1" id="PbmFetchComplianceResult-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchComplianceResult" type="pbm:PbmFetchComplianceResultRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchComplianceResultResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<a id="fetchRollupComplianceResult" name="fetchRollupComplianceResult"></a>
+<h1>PbmFetchRollupComplianceResult(fetchRollupComplianceResult)</h1>
+<p></p>
+         Retrieves the rollup compliance (<a href="pbm.compliance.RollupComplianceResult.html">PbmRollupComplianceResult</a>)
+ of the given virtual machines if present. The returned rollup compliance
+ result may be old. Invoke checkRollupCompliance API to compute & retrieve the
+ latest rollup compliance result.
+      <dl>
+<dt>Required Privileges</dt>
+<dd>StorageProfile.View</dd>
+</dl>
+<p class="table-title">
+		Parameters
+		</p>
+<table cellspacing="0">
+<tr>
+<th>Name</th><th>Type</th><th>Description</th>
+</tr>
+<tr class="r1">
+<td><strong>_this</strong></td><td><a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a></td><td>
+					A reference to the 
+						<a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a>
+						used to make the method call.
+					</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><strong>entity</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef[]</a></td><td>
+<p></p>
+         One or more virtual machines.
+      <br>
+</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+		Return Value
+		</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr>
+<td><a href="pbm.compliance.RollupComplianceResult.html">PbmRollupComplianceResult[]</a></td><td>Rollup compliance results for the given virtual machines.</td>
+</tr>
+</table>
+<br>
+<p class="table-title">
+         Faults
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th><th>
+               Description
+            </th>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.fault.InvalidArgument.html">InvalidArgument</a></td><td>Thrown if one of the following situations occurs: <ul><li>There is no profile associated with the virtual machine or its virtual disks.</li> <li>You specify only datastores or virtual disks.</li> <li>All of the specified virtual machines are invalid.</li></ul></td>
+</tr>
+<tr class="r0">
+<td><a href="pbm.fault.PBMFault.html">PbmFault</a></td><td>Thrown if there is an internal server error.</td>
+</tr>
+<tr class="r1">
+<td><a href="vmodl.RuntimeFault.html">RuntimeFault</a></td><td>Thrown if any type of runtime fault is thrown that is not covered by the other faults; for example, a communication error.</td>
+</tr>
+</table>
+<p class="table-title">
+         Events
+      </p>
+<table cellspacing="0">
+<tr>
+<th>
+               Type
+            </th>
+</tr>
+<tr class="r1">
+<td colspan="2">None</td>
+</tr>
+</table>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('PbmFetchRollupComplianceResult-textarea');expandcontent(this, 'PbmFetchRollupComplianceResult-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="PbmFetchRollupComplianceResult-div">
+<textarea cols="20" rows="10" name="PbmFetchRollupComplianceResult-textarea" wrap="off" readonly="1" id="PbmFetchRollupComplianceResult-textarea">         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchRollupComplianceResult" type="pbm:PbmFetchRollupComplianceResultRequestType"/>
+         <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmFetchRollupComplianceResultResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="pbm:PbmRollupComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+               </sequence>
+            </complexType>
+         </element></textarea>
+</div>
+<br>
+<br>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td></td><td><a href="#method_detail">Local Methods</a></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

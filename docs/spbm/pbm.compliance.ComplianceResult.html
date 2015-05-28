@@ -1,0 +1,164 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.compliance.ComplianceResult" name="pbm.compliance.ComplianceResult"></a>
+<h1>Data Object - PbmComplianceResult(pbm.compliance.ComplianceResult)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.compliance.RollupComplianceResult.html#field_detail">PbmRollupComplianceResult</a>
+</dd>
+<dt>Returned by</dt>
+<dd>
+<a href="pbm.compliance.ComplianceManager.html#checkCompliance">PbmCheckCompliance</a>, <a href="pbm.compliance.ComplianceManager.html#fetchComplianceResult">PbmFetchComplianceResult</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.compliance.OperationalStatus.html">PbmComplianceOperationalStatus</a>, <a href="pbm.compliance.PolicyStatus.html">PbmCompliancePolicyStatus</a>, <a href="pbm.profile.ProfileId.html">PbmProfileId</a>, <a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         The <a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a> data object describes the results of profile compliance
+ checking for a virtual machine or virtual disk.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="checkTime" name="checkTime"></a><strong>checkTime</strong></td><td>xsd:dateTime</td><td>
+<p></p>
+         Time when the compliance was checked.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="complianceStatus" name="complianceStatus"></a><strong>complianceStatus</strong></td><td>xsd:string</td><td>
+<p></p>
+         Status of the compliance operation. <code>complianceStatus</code>
+ is a string value that corresponds to one of the
+ <a href="pbm.compliance.ComplianceResult.ComplianceStatus.html">PbmComplianceStatus</a> values.
+ <p>
+ When you perform compliance checking on a profile that contains
+ more than one subprofile
+ (<a href="pbm.profile.CapabilityBasedProfile.html">PbmCapabilityProfile</a>.<a href="pbm.profile.CapabilityBasedProfile.html#constraints">constraints</a>),
+ a non-compliant result for any one of the subprofiles will produce
+ a non-compliant result for the operation.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="entity" name="entity"></a><strong>entity</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a></td><td>
+<p></p>
+         Virtual machine or virtual disk for which compliance was checked.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="mismatch" name="mismatch"></a><strong>mismatch</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         Set to true if there is a profile version mismatch between the Storage
+ Profile Server and the storage provider. If you receive a result that
+ indicates a mismatch, you must use the vSphere API to update the profile
+ associated with the virtual machine or virtual disk.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="operationalStatus" name="operationalStatus"></a><strong>operationalStatus</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.compliance.OperationalStatus.html">PbmComplianceOperationalStatus</a></td><td>
+<p></p>
+         Additional information on the effects of backend resources and
+ operations on the storage object.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="profile" name="profile"></a><strong>profile</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.profile.ProfileId.html">PbmProfileId</a></td><td>
+<p></p>
+         Requirement profile with which the compliance was checked.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="violatedPolicies" name="violatedPolicies"></a><strong>violatedPolicies</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.compliance.PolicyStatus.html">PbmCompliancePolicyStatus[]</a></td><td>
+<p></p>
+         Values for capabilities that are known to be non-compliant with the specified constraints.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmComplianceResult">
+            <complexContent>
+               <extension base="pbm:DynamicData">
+                  <sequence>
+                     <element name="checkTime" type="xsd:dateTime"/>
+                     <element name="entity" type="pbm:PbmServerObjectRef"/>
+                     <element name="profile" type="pbm:PbmProfileId" minOccurs="0"/>
+                     <element name="complianceStatus" type="xsd:string"/>
+                     <element name="mismatch" type="xsd:boolean"/>
+                     <element name="violatedPolicies" type="pbm:PbmCompliancePolicyStatus" minOccurs="0" maxOccurs="unbounded"/>
+                     <element name="operationalStatus" type="pbm:PbmComplianceOperationalStatus" minOccurs="0"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

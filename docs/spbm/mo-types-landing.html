@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>Storage Policy Managed Object Overview</title>
+	<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1"/>
+	<meta name="vs_targetSchema" 
+content="http://schemas.microsoft.com/intellisense/ie5"/>
+        <script language="JavaScript" src="./commonRes.js"> type="text/javascript"></script>
+		
+	<link rel="stylesheet" type="text/css" href="doc-style.css"/>
+
+<style type="text/css">
+
+.Caption {font-size: 10px; FONT-WEIGHT: bold;
+           }
+.Gray
+{
+	 font-size: 9px; FONT-WEIGHT: bold; COLOR: "gray"; TEXT-DECORATION: none
+
+}
+	   
+.Blue {
+	 font-size: 9px; FONT-WEIGHT: bold; COLOR: "blue"; TEXT-DECORATION: none
+
+}
+
+table {
+  border-collapse:collapse;
+  border-top: 0px;
+  border-left: 0px;
+  width:95%;
+}
+
+td, th {
+  font-size: 12px;
+  padding: 5px 10px 5px 10px;
+  border-bottom: 0px;
+  border-right: 0px;
+  vertical-align: top;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Storage Policy Managed Object Overview</h1>
+
+<p>
+The Storage Policy object model includes a set
+of server-side managed objects that support storage profile management
+in the vSphere environment. The Storage Policy managed objects
+support the following capabilities:
+</p>
+<ul>
+<li><a href="pbm.profile.ProfileManager.html">PbmProfileProfileManager</a> &#8211;
+Provides access to vSphere storage profiles and to entities associated with profiles.</li>
+<li><a href="pbm.compliance.ComplianceManager.html">PbmComplianceManager</a> &#8211;
+Supports compliance checking of profiles and entities.</li>
+<li><a href="pbm.placement.PlacementSolver.html">PbmPlacementSolver</a> &#8211;
+Supports placement compatibility checking.</li>
+</ul>
+
+<p>
+The following figure shows the <a href="pbm.ServiceInstance">PbmServiceInstance</a> object hierarchy.
+The figure shows both managed objects and <a href="do-types-landing.html">data objects</a>.
+The <a href="pbm.ServiceInstanceContent">PbmServiceInstanceContent</a> data object
+provides access to the Storage Policy managed objects and it provides access to information
+about the service in the <a href="pbm.AboutInfo.html">PbmAboutInfo</a> data object.
+</p>
+<p>
+In the figure, &#147;<strong>MOR</strong>&#148; is an abbreviation for
+<a href="vmodl.ManagedObjectReference.html">ManagedObjectReference</a>,
+a data object that provides a reference to server-side objects.
+A client application uses a <code>ManagedObjectReference</code> when it
+invokes a managed object method.
+</p>
+
+<map name="spbm_svc_hierarchy" id="spbm_svc_hierarchy">
+<area shape="rect" coords="2, 113, 147, 158" href="pbm.ServiceInstance.html" alt="PbmServiceInstance  page"/>
+<area shape="rect" coords="171, 113, 358, 158" href="pbm.ServiceInstanceContent.html" alt="ServiceContent data object"/>
+
+<area shape="rect" coords="470, 12,640, 56" href="pbm.AboutInfo.html" alt="PbmAboutInfo data object"/>
+<area shape="rect" coords="403, 88, 452, 117" href="vmodl.ManagedObjectReference" alt="ManagedObjectReference data object"/>
+<area shape="rect" coords="470, 78, 640, 124" href="pbm.profile.ProfileManager.html" alt="PbmProfileProfileManager managed object"/>
+<area shape="rect" coords="406, 155, 455, 181" href="vmodl.ManagedObjectReference" alt="ManagedObjectReference data object"/>
+<area shape="rect" coords="470, 144, 640, 190" href="pbm.compliance.ComplianceManager.html" alt="PbmComplianceComplianceManager managed object"/>
+<area shape="rect" coords="407, 216, 456, 244" href="vmodl.ManagedObjectReference" alt="ManagedObjectReference data object"/>
+<area shape="rect" coords="469, 205, 640, 252" href="pbm.placement.PlacementSolver.html" alt="PbmPlacementPlacementSolver managed object"/>
+</map>
+
+<table width="750" cellpadding="0" cellspacing="0" border="0">
+<tr><td width="650">
+<img src="PbmServiceInstance-hierarchy.gif" usemap="#spbm_svc_hierarchy" alt="PbmServiceInstance" name="PbmServiceInstance_figure" id="PbmServiceInstance_figure" border="0"/> 
+</td></tr>
+</table>
+
+<h3>Access to the Storage Policy Server</h3>
+<p>
+To gain access to the Storage Policy Server, your client connects to a vCenter Server and
+obtains the vCenter session cookie. Then you can use the vCenter session cookie to establish
+the connection with the Storage Policy Server.
+</p>
+<p>
+After you establish a Storage Policy Server connection, your client uses language-specific
+Web Services access objects and the <a href="pbm.ServiceInstance">PbmServiceInstance</a> and
+<a href="pbm.ServiceInstanceContent">PbmServiceInstanceContent</a> objects to
+access the Storage Policy managed objects and their methods.
+</p>
+<p>
+The Storage Policy Web Services access objects are language-specific API binding objects that are
+generated from the Storage Policy WSDL. The VMware Storage Policy SDK contains JAXWS bindings
+to the Storage Policy API. The JAXWS bindings include the <code>PbmService</code>
+and <code>PbmPortType</code> Web Services access objects.
+</p>
+<ul>
+<li><code>PbmService</code> &#8211; Provides access to the <code>PbmPortType</code> object and it provides support
+for the Storage Policy Server connection.</li>
+<li><code>PbmPortType</code> &#8211; Provides access to Storage Policy methods.</li>
+</ul>
+<p>
+See the <i>VMware Storage Policy Programming Guide</i> for a description of how
+to establish a Storage Policy Server connection and access the Storage Policy methods.
+</p>
+<h3>Storage Policy API Reference Navigation</h3>
+<p>
+All managed object types are listed in the frame at the left of this page.
+Click a name to display the reference documentation for the managed object.
+</p>
+<p>
+To quickly find any entry, start typing its name in the <strong>Quick Index</strong>.
+</p>
+
+<a href="right-pane.html">Back to Home</a>
+<p><script language="javascript">document.write(ID_Copyright);</script><br/>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</p>
+
+</body>
+</html>

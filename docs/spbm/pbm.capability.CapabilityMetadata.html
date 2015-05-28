@@ -1,0 +1,156 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.capability.CapabilityMetadata" name="pbm.capability.CapabilityMetadata"></a>
+<h1>Data Object - PbmCapabilityMetadata(pbm.capability.CapabilityMetadata)</h1>
+<dl>
+<dt>Property of</dt>
+<dd>
+<a href="pbm.capability.provider.CapabilityObjectMetadataPerCategory.html#field_detail">PbmCapabilityMetadataPerCategory</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.capability.CapabilityMetadata.UniqueId.html">PbmCapabilityMetadataUniqueId</a>, <a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata</a>, <a href="pbm.ExtendedElementDescription.html">PbmExtendedElementDescription</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         Metadata for a single unique setting defined by a provider.
+ A simple setting is a setting with one property.
+ A complex setting contains more than one property.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="allowMultipleConstraints" name="allowMultipleConstraints"></a><strong>allowMultipleConstraints</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         Flag to indicate if multiple constraints are allowed in the capability
+ instance. False if not set.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="hint" name="hint"></a><strong>hint</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         The flag hint dictates the interpretation of constraints specified for this capability
+ in a storage policy profile. If hint is false, then constraints will affect placement.
+ If hint is true, constraints will not affect placement,
+ but will still be passed to provisioning operations if the provider understands the
+ relevant namespace. Optional property, false if not set.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="id" name="id"></a><strong>id</strong></td><td><a href="pbm.capability.CapabilityMetadata.UniqueId.html">PbmCapabilityMetadataUniqueId</a></td><td>
+<p></p>
+         Unique identifier for the capability.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="keyId" name="keyId"></a><strong>keyId</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:string</td><td>
+<p></p>
+         Property Id of the key property, if this capability represents a key
+ value pair. Value is empty string if not set.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="mandatory" name="mandatory"></a><strong>mandatory</strong><span title="Need not be set" class="footnote-ref">*</span></td><td>xsd:boolean</td><td>
+<p></p>
+         Indicates whether incorporating given capability is mandatory during creation of
+ profile.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="propertyMetadata" name="propertyMetadata"></a><strong>propertyMetadata</strong></td><td><a href="pbm.capability.PropertyMetadata.html">PbmCapabilityPropertyMetadata[]</a></td><td>
+<p></p>
+         Metadata for the properties that comprise this capability.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="summary" name="summary"></a><strong>summary</strong></td><td><a href="pbm.ExtendedElementDescription.html">PbmExtendedElementDescription</a></td><td>
+<p></p>
+         Capability  name and description
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmCapabilityMetadata">
+            <complexContent>
+               <extension base="pbm:DynamicData">
+                  <sequence>
+                     <element name="id" type="pbm:PbmCapabilityMetadataUniqueId"/>
+                     <element name="summary" type="pbm:PbmExtendedElementDescription"/>
+                     <element name="mandatory" type="xsd:boolean" minOccurs="0"/>
+                     <element name="hint" type="xsd:boolean" minOccurs="0"/>
+                     <element name="keyId" type="xsd:string" minOccurs="0"/>
+                     <element name="allowMultipleConstraints" type="xsd:boolean" minOccurs="0"/>
+                     <element name="propertyMetadata" type="pbm:PbmCapabilityPropertyMetadata" maxOccurs="unbounded"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>

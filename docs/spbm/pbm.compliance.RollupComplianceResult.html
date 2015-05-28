@@ -1,0 +1,155 @@
+<html xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vim2="urn:vim2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="./commonRes.js" language="JavaScript"> type="text/javascript"></script>
+<link href="doc-style.css" type="text/css" rel="StyleSheet">
+</head>
+<script src="dynamic-content.js" type="text/javascript"></script>
+<body>
+<table cellspacing="0" class="header-footer" id="top">
+<tr>
+<td>
+<br>
+</td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<a id="pbm.compliance.RollupComplianceResult" name="pbm.compliance.RollupComplianceResult"></a>
+<h1>Data Object - PbmRollupComplianceResult(pbm.compliance.RollupComplianceResult)</h1>
+<dl>
+<dt>Returned by</dt>
+<dd>
+<a href="pbm.compliance.ComplianceManager.html#checkRollupCompliance">PbmCheckRollupCompliance</a>, <a href="pbm.compliance.ComplianceManager.html#fetchRollupComplianceResult">PbmFetchRollupComplianceResult</a>
+</dd>
+<dt>Extends</dt>
+<dd>
+<a href="vmodl.DynamicData.html">DynamicData</a>
+</dd>
+<dt>See also</dt>
+<dd>
+<a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a>, <a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a>
+</dd>
+<p></p>
+</dl>
+<H2>Data Object 
+                  Description</H2>
+<p></p>
+         The <a href="pbm.compliance.RollupComplianceResult.html">PbmRollupComplianceResult</a> data object identifies the virtual machine
+ for which rollup compliance was checked, and it contains the overall status
+ and a list of compliance result objects.
+      <p></p>
+<a id="field_detail" name="field_detail"></a>
+<p class="table-title">Properties</p>
+<table cellspacing="0">
+<tr>
+<th>
+	          Name
+	        </th><th>
+	          Type
+	        </th><th>
+	          Description
+	        </th>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="entity" name="entity"></a><strong>entity</strong></td><td><a href="pbm.ServerObjectRef.html">PbmServerObjectRef</a></td><td>
+<p></p>
+         Virtual machine for which the rollup compliance was checked.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="oldestCheckTime" name="oldestCheckTime"></a><strong>oldestCheckTime</strong></td><td>xsd:dateTime</td><td>
+<p></p>
+         Indicates the earliest time that compliance was checked for any
+ of the entities in the rollup compliance check. The compliance
+ check time for a single entity is represented in the
+ <a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a>.<a href="pbm.compliance.ComplianceResult.html#checkTime">checkTime</a>
+ property. If the <a href="pbm.compliance.ComplianceResult.html#checkTime">checkTime</a>
+ property is unset for any of the objects in the <code>results</code>
+ array, the <code>oldestCheckTime</code> property will be unset.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="overallComplianceStatus" name="overallComplianceStatus"></a><strong>overallComplianceStatus</strong></td><td>xsd:string</td><td>
+<p></p>
+         Overall compliance status of the virtual machine and its virtual disks.
+ <code>overallComplianceStatus</code> is a string value that
+ corresponds to one of the
+ <a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a>.<a href="pbm.compliance.ComplianceResult.html#complianceStatus">complianceStatus</a>
+ values.
+ <p>
+ The overall compliance status is determined by the following rules:
+ <ul>
+ <li>If all the entities are <code>compliant</code>, the overall status is
+ <code>compliant</code>.</li>
+ <li>If any entity is <code>nonCompliant</code> then the overall status is
+ <code>nonCompliant</code>.</li>
+ <li>If any <a href="pbm.compliance.ComplianceResult.html#complianceStatus">complianceStatus</a>
+ is <code>unknown</code> then the overall status is <code>unknown</code>.</li>
+ </ul>
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td nowrap="1"><a id="profileMismatch" name="profileMismatch"></a><strong>profileMismatch</strong></td><td>xsd:boolean</td><td>
+<p></p>
+         True if and only if
+ <a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult</a>.<a href="pbm.compliance.ComplianceResult.html#mismatch">mismatch</a>
+ is true for at least one entity in the rollup compliance check.
+      <br>
+</td>
+</tr>
+<tr class="r1">
+<td nowrap="1"><a id="result" name="result"></a><strong>result</strong><span title="Need not be set" class="footnote-ref">*</span></td><td><a href="pbm.compliance.ComplianceResult.html">PbmComplianceResult[]</a></td><td>
+<p></p>
+         Individual compliance results that make up the rollup.
+      <br>
+</td>
+</tr>
+<tr class="r0">
+<td colspan="3">
+						Properties inherited from <a href="vmodl.DynamicData.html">DynamicData</a></td>
+</tr>
+<tr class="r1">
+<td colspan="3">None</td>
+</tr>
+</table>
+<span class="footnote-ref">*</span><span class="footnote">Need not be set</span>
+<br>
+<a style="margin-bottom:10px; margin-top:10px; cursor:hand; cursor:pointer" onclick="resize_textarea('wsdl-textarea');expandcontent(this, 'wsdl-div')">Show WSDL type definition</a>
+<div class="switchcontent" id="wsdl-div">
+<textarea cols="20" rows="10" name="wsdl-textarea" wrap="off" readonly="1" id="wsdl-textarea">         <complexType xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pbm="urn:pbm" name="PbmRollupComplianceResult">
+            <complexContent>
+               <extension base="pbm:DynamicData">
+                  <sequence>
+                     <element name="oldestCheckTime" type="xsd:dateTime"/>
+                     <element name="entity" type="pbm:PbmServerObjectRef"/>
+                     <element name="overallComplianceStatus" type="xsd:string"/>
+                     <element name="result" type="pbm:PbmComplianceResult" minOccurs="0" maxOccurs="unbounded"/>
+                     <element name="profileMismatch" type="xsd:boolean"/>
+                  </sequence>
+               </extension>
+            </complexContent>
+         </complexType></textarea>
+</div>
+<br>
+<br>
+<table cellspacing="0" class="header-footer" id="bottom">
+<tr>
+<td><a href="#top">Top of page</a></td><td></td><td><a href="#field_detail">Local Properties</a></td><td></td>
+</tr>
+<tr>
+<td><a href="index-mo_types.html">Managed Object Types</a></td><td><a href="index-do_types.html">Data Object Types</a></td><td><a href="index-properties.html">All Properties</a></td><td><a href="index-methods.html">All Methods</a></td>
+</tr>
+</table>
+<br>
+<script language="javascript">document.write(ID_Copyright);</script>
+<br>
+<script language="javascript">document.write(ID_VersionInformation);</script>
+</body>
+</html>
