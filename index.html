@@ -134,6 +134,42 @@
         are successful because of a great community, so please join ours and help today!
     </div>
 </div>
+<div class="container">
+    <h2>Download Information</h2>
+    <div class="jumbotron info">
+        To download YAVIJAVA you have several options. The first and most commonly used method is to obtain the package from maven.
+        If you have a pom based project simply add:
+        <pre>
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.toastcoders&lt;/groupId&gt;
+                &lt;artifactId&gt;yavijava&lt;/artifactId&gt;
+                &lt;version&gt;VERSION&lt;/version&gt;
+            &lt;/dependency&gt;
+        </pre>
+        Where VERSION is the actual numbered version you want to use.<br />
+        If you have a gradle based project the process is very simple as well. Just add:
+        <pre>
+            compile 'com.toastcoders:yavijava:VERSION'
+        </pre>
+        Againg making sure where VERSION is the actual numbered version you want to use.<br />
+        These will be the best methods because they will resolve any dependencies for you automatically. Another
+        method you can use is to download the source release from the <a href="https://github.com/yavijava/yavijava/releases">releases page on github</a>.
+        If you use this method you will need to build the jar file on your own. Thanks to gradle that is simple.
+        The gradle wrapper is included in the source download so once you unpack the source simply execute:
+        <pre>
+            For Linux:
+            ./gradlew build
+
+            For Windows:
+            gradlew.bat build
+        </pre>
+        A JDK is required to build the jar, but gradle is not. The jar will be built with Java 1.6 compatibility.<br />
+        Finally the last option is to download the source directly from github by cloning the repository. If you choose to
+        use this method be aware that the "gradle" branch is where the current production code lives, any other branch is
+        either stale from the import of vijava from SVN, or is experimental and currently under development. The instructions
+        above for building from source will work when choosing this method, just check out the branch you want to use, and build it.
+    </div>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
